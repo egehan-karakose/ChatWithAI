@@ -56,7 +56,6 @@
 		D82C188429541BFB004CF692 = {
 			isa = PBXGroup;
 			children = (
-				D846F12F2954D7C600AA429F /* Config.xcconfig */,
 				D82C18B82954C3FD004CF692 /* ChatWithAI-InfoPlist.strings */,
 				D82C188F29541BFB004CF692 /* ChatWithAI */,
 				D82C188E29541BFB004CF692 /* Products */,
@@ -74,6 +73,7 @@
 		D82C188F29541BFB004CF692 /* ChatWithAI */ = {
 			isa = PBXGroup;
 			children = (
+				D846F12F2954D7C600AA429F /* Config.xcconfig */,
 				D846F1322954DEEC00AA429F /* Info.plist */,
 				D82C189029541BFB004CF692 /* ChatWithAIApp.swift */,
 				D82C189229541BFB004CF692 /* ContentView.swift */,
