@@ -96,7 +96,7 @@ struct ContentView: View {
             hideKeyboard()
         }
         .padding()
-    
+        
     }
     
     func send() {

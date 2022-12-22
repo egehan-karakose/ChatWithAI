@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  ChatWithAI
+//
+//  Created by Egehan Karaköse on 22.12.2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+API_KEY = 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

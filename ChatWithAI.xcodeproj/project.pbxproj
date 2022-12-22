@@ -18,6 +18,8 @@
 		D82C18B42954C076004CF692 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D82C18B62954C076004CF692 /* Localizable.strings */; };
 		D82C18BA2954C3FD004CF692 /* ChatWithAI-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D82C18B82954C3FD004CF692 /* ChatWithAI-InfoPlist.strings */; };
 		D82C18BC2954C672004CF692 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C18BB2954C672004CF692 /* MessageView.swift */; };
+		D846F1312954DCE300AA429F /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D846F1302954DCE300AA429F /* Configuration.swift */; };
+		D846F1342954DF7C00AA429F /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D846F1332954DF7C00AA429F /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,10 @@
 		D82C18B72954C32E004CF692 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D82C18B92954C3FD004CF692 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = "tr.lproj/ChatWithAI-InfoPlist.strings"; sourceTree = "<group>"; };
 		D82C18BB2954C672004CF692 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		D846F12F2954D7C600AA429F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		D846F1302954DCE300AA429F /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		D846F1322954DEEC00AA429F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D846F1332954DF7C00AA429F /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,7 @@
 		D82C188429541BFB004CF692 = {
 			isa = PBXGroup;
 			children = (
+				D846F12F2954D7C600AA429F /* Config.xcconfig */,
 				D82C18B82954C3FD004CF692 /* ChatWithAI-InfoPlist.strings */,
 				D82C188F29541BFB004CF692 /* ChatWithAI */,
 				D82C188E29541BFB004CF692 /* Products */,
@@ -67,6 +74,7 @@
 		D82C188F29541BFB004CF692 /* ChatWithAI */ = {
 			isa = PBXGroup;
 			children = (
+				D846F1322954DEEC00AA429F /* Info.plist */,
 				D82C189029541BFB004CF692 /* ChatWithAIApp.swift */,
 				D82C189229541BFB004CF692 /* ContentView.swift */,
 				D82C189429541BFC004CF692 /* Assets.xcassets */,
@@ -76,6 +84,8 @@
 				D82C18AE29547D55004CF692 /* ActivityIndicator.swift */,
 				D82C18B62954C076004CF692 /* Localizable.strings */,
 				D82C18BB2954C672004CF692 /* MessageView.swift */,
+				D846F1302954DCE300AA429F /* Configuration.swift */,
+				D846F1332954DF7C00AA429F /* SplashView.swift */,
 			);
 			path = ChatWithAI;
 			sourceTree = "<group>";
@@ -168,7 +178,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D82C18BC2954C672004CF692 /* MessageView.swift in Sources */,
+				D846F1342954DF7C00AA429F /* SplashView.swift in Sources */,
 				D82C189329541BFB004CF692 /* ContentView.swift in Sources */,
+				D846F1312954DCE300AA429F /* Configuration.swift in Sources */,
 				D82C18AF29547D55004CF692 /* ActivityIndicator.swift in Sources */,
 				D82C18A229541C97004CF692 /* ViewModel.swift in Sources */,
 				D82C189129541BFB004CF692 /* ChatWithAIApp.swift in Sources */,
@@ -202,6 +214,7 @@
 /* Begin XCBuildConfiguration section */
 		D82C189929541BFC004CF692 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D846F12F2954D7C600AA429F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -262,6 +275,7 @@
 		};
 		D82C189A29541BFC004CF692 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D846F12F2954D7C600AA429F /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -325,11 +339,11 @@
 				DEVELOPMENT_TEAM = 6J6245LPWX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatWithAI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -354,11 +368,11 @@
 				DEVELOPMENT_TEAM = 6J6245LPWX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatWithAI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
