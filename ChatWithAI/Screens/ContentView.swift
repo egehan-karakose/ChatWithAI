@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var text = ""
     @State var models: [MessageModel] = [MessageModel]()
     @State private var muted = true
+    @State var previousText = ""
     
     let synt = AVSpeechSynthesizer()
     
@@ -33,7 +34,7 @@ struct ContentView: View {
                             .foregroundColor(.orange)
                     }
                     
-                    .accessibilityLabel("New Scrum")
+                    .accessibilityLabel("Mute")
                 }
                 ScrollView(showsIndicators: false) {
                     ScrollViewReader { value in
@@ -87,10 +88,18 @@ struct ContentView: View {
                 
                 Spacer()
                 HStack {
+                    Button(action: {
+                        send(text: previousText)
+                    }) {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.system(size: 24))
+                            .foregroundColor(previousText == "" ? .gray : .orange)
+                    }
+                    .disabled(previousText == "")
                     TextField("ENTRY_TEXT", text: $text)
                     Button("SEND_BTN_TEXT") {
                         hideKeyboard()
-                        send()
+                        send(text: text)
                     }
                     .foregroundColor(.orange)
                     .disabled(viewModel.hudVisible)
@@ -129,10 +138,11 @@ struct ContentView: View {
         
     }
     
-    func send() {
+    func send(text: String) {
         guard !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
         models.append(MessageModel(responder: .client, message: text))
         viewModel.send(text: text)
+        previousText = text
         self.text = ""
     }
 }
