@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct ContentView: View {
     
@@ -14,6 +15,8 @@ struct ContentView: View {
     @State var models: [MessageModel] = [MessageModel]()
     @State private var muted = true
     
+    let synt = AVSpeechSynthesizer()
+    
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -21,6 +24,9 @@ struct ContentView: View {
                     Spacer()
                     Button(action: {
                         muted.toggle()
+                        if muted {
+                            synt.pauseSpeaking(at: .immediate)
+                        }
                     }) {
                         Image(systemName: muted ? "speaker.slash" : "speaker")
                             .font(.system(size: 32))
@@ -93,6 +99,9 @@ struct ContentView: View {
             .onReceive(viewModel.$messageModel) { model in
                 guard let message = model, !(message.message ?? "").isEmpty else { return }
                 self.models.append(message)
+                if !muted {
+                    playSound(text: message.message ?? "")
+                }
             }
             .onAppear {
                 viewModel.setup()
@@ -110,6 +119,13 @@ struct ContentView: View {
             hideKeyboard()
         }
         .padding()
+        
+    }
+    
+    func playSound(text: String) {
+        let utterance = AVSpeechUtterance(string: text)
+        utterance.rate = 0.5
+        synt.speak(utterance)
         
     }
     
