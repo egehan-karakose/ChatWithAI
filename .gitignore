@@ -32,7 +32,7 @@ Temporary Items
 ### macOS Patch ###
 # iCloud generated files
 *.icloud
-*.xcconfig
+ChatWithAI/*.xcconfig
 
 ### Swift ###
 # Xcode

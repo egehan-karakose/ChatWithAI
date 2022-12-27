@@ -12,10 +12,23 @@ struct ContentView: View {
     @ObservedObject var viewModel = ViewModel()
     @State var text = ""
     @State var models: [MessageModel] = [MessageModel]()
+    @State private var muted = true
     
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        muted.toggle()
+                    }) {
+                        Image(systemName: muted ? "speaker.slash" : "speaker")
+                            .font(.system(size: 32))
+                            .foregroundColor(.orange)
+                    }
+                    
+                    .accessibilityLabel("New Scrum")
+                }
                 ScrollView(showsIndicators: false) {
                     ScrollViewReader { value in
                         LazyVStack {
@@ -73,6 +86,7 @@ struct ContentView: View {
                         hideKeyboard()
                         send()
                     }
+                    .foregroundColor(.orange)
                     .disabled(viewModel.hudVisible)
                 }
             }
@@ -87,7 +101,7 @@ struct ContentView: View {
             if viewModel.hudVisible {
                 ActivityIndicator()
                     .frame(width: 100, height: 100)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.orange)
             }
             
             

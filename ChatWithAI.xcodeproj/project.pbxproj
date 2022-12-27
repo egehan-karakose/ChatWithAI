@@ -73,19 +73,16 @@
 		D82C188F29541BFB004CF692 /* ChatWithAI */ = {
 			isa = PBXGroup;
 			children = (
+				D846F1382956218800AA429F /* Helpers */,
+				D846F1372956217200AA429F /* ViewModel */,
+				D846F1362956214800AA429F /* Screens */,
+				D846F1352956214000AA429F /* Views */,
 				D846F12F2954D7C600AA429F /* Config.xcconfig */,
 				D846F1322954DEEC00AA429F /* Info.plist */,
 				D82C189029541BFB004CF692 /* ChatWithAIApp.swift */,
-				D82C189229541BFB004CF692 /* ContentView.swift */,
 				D82C189429541BFC004CF692 /* Assets.xcassets */,
 				D82C189629541BFC004CF692 /* Preview Content */,
-				D82C18A129541C97004CF692 /* ViewModel.swift */,
-				D82C18AC295445A4004CF692 /* Extensions.swift */,
-				D82C18AE29547D55004CF692 /* ActivityIndicator.swift */,
 				D82C18B62954C076004CF692 /* Localizable.strings */,
-				D82C18BB2954C672004CF692 /* MessageView.swift */,
-				D846F1302954DCE300AA429F /* Configuration.swift */,
-				D846F1332954DF7C00AA429F /* SplashView.swift */,
 			);
 			path = ChatWithAI;
 			sourceTree = "<group>";
@@ -96,6 +93,41 @@
 				D82C189729541BFC004CF692 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D846F1352956214000AA429F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D82C18BB2954C672004CF692 /* MessageView.swift */,
+				D82C18AE29547D55004CF692 /* ActivityIndicator.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D846F1362956214800AA429F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D82C189229541BFB004CF692 /* ContentView.swift */,
+				D846F1332954DF7C00AA429F /* SplashView.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D846F1372956217200AA429F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D82C18A129541C97004CF692 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D846F1382956218800AA429F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D846F1302954DCE300AA429F /* Configuration.swift */,
+				D82C18AC295445A4004CF692 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,12 +366,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatWithAI/Preview Content\"";
 				DEVELOPMENT_TEAM = 6J6245LPWX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatWithAI/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the meeting. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,9 +385,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.egehankarakose.ChatWithAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -363,12 +400,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatWithAI/Preview Content\"";
 				DEVELOPMENT_TEAM = 6J6245LPWX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatWithAI/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Audio is recorded to transcribe the meeting. Audio recordings are discarded after transcription.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "You can view a text transcription of your meeting in the app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -380,9 +419,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.egehankarakose.ChatWithAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
