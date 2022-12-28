@@ -18,6 +18,13 @@ struct ContentView: View {
     @State var previousText = ""
     @State var isMicActive = false
     @State var synt: AVSpeechSynthesizer?
+    @State var showAddCounter = 5
+    
+    private var fullScreenAd: Interstitial?
+        init() {
+            fullScreenAd = Interstitial()
+    }
+        
     
     var body: some View {
         ZStack {
@@ -87,6 +94,12 @@ struct ContentView: View {
                             .onChange(of: models.count) { _ in
                                 withAnimation {
                                     value.scrollTo(models.last?.id)
+                                }
+                            }
+                            .onChange(of: showAddCounter) { _ in
+                                if showAddCounter == 0 {
+                                    showAddCounter = 5
+                                    self.fullScreenAd?.showAd()
                                 }
                             }
                         }
@@ -165,6 +178,7 @@ struct ContentView: View {
     
     func send(text: String) {
         guard !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        showAddCounter -= 1
         synt?.pauseSpeaking(at: .immediate)
         models.append(MessageModel(responder: .client, message: text))
         viewModel.send(text: text)

@@ -6,9 +6,15 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct ChatWithAIApp: App {
+    
+    init() {
+          GADMobileAds.sharedInstance().start(completionHandler: nil)
+      }
+    
     var body: some Scene {
         WindowGroup {
             SplashView()
