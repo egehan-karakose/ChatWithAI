@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D824B966295C278C00298429 /* SwiftSpeech in Frameworks */ = {isa = PBXBuildFile; productRef = D824B965295C278C00298429 /* SwiftSpeech */; };
 		D82C189129541BFB004CF692 /* ChatWithAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C189029541BFB004CF692 /* ChatWithAIApp.swift */; };
 		D82C189329541BFB004CF692 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82C189229541BFB004CF692 /* ContentView.swift */; };
 		D82C189529541BFC004CF692 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D82C189429541BFC004CF692 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D824B966295C278C00298429 /* SwiftSpeech in Frameworks */,
 				D82C18A029541C86004CF692 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,6 +150,7 @@
 			name = ChatWithAI;
 			packageProductDependencies = (
 				D82C189F29541C86004CF692 /* OpenAISwift */,
+				D824B965295C278C00298429 /* SwiftSpeech */,
 			);
 			productName = ChatWithAI;
 			productReference = D82C188D29541BFB004CF692 /* ChatWithAI.app */;
@@ -180,6 +183,7 @@
 			mainGroup = D82C188429541BFB004CF692;
 			packageReferences = (
 				D82C189E29541C86004CF692 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+				D824B964295C278C00298429 /* XCRemoteSwiftPackageReference "SwiftSpeech" */,
 			);
 			productRefGroup = D82C188E29541BFB004CF692 /* Products */;
 			projectDirPath = "";
@@ -385,7 +389,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.egehankarakose.ChatWithAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -423,7 +427,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.egehankarakose.ChatWithAI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -460,6 +464,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D824B964295C278C00298429 /* XCRemoteSwiftPackageReference "SwiftSpeech" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Cay-Zhang/SwiftSpeech";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D82C189E29541C86004CF692 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
@@ -471,6 +483,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D824B965295C278C00298429 /* SwiftSpeech */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D824B964295C278C00298429 /* XCRemoteSwiftPackageReference "SwiftSpeech" */;
+			productName = SwiftSpeech;
+		};
 		D82C189F29541C86004CF692 /* OpenAISwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D82C189E29541C86004CF692 /* XCRemoteSwiftPackageReference "OpenAISwift" */;

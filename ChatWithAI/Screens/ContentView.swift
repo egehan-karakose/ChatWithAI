@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import SwiftSpeech
 
 struct ContentView: View {
     
@@ -15,6 +16,7 @@ struct ContentView: View {
     @State var models: [MessageModel] = [MessageModel]()
     @State private var muted = true
     @State var previousText = ""
+    @State var isMicActive = false
     
     let synt = AVSpeechSynthesizer()
     
@@ -22,6 +24,15 @@ struct ContentView: View {
         ZStack {
             VStack(alignment: .leading) {
                 HStack {
+                    Button(action: {
+                        isMicActive.toggle()
+                    }) {
+                        Image(systemName: isMicActive ? "mic" : "mic.slash")
+                            .font(.system(size: 32))
+                            .foregroundColor(.orange)
+                    }
+                    .accessibilityLabel("Mic")
+                    
                     Spacer()
                     Button(action: {
                         muted.toggle()
@@ -33,8 +44,9 @@ struct ContentView: View {
                             .font(.system(size: 32))
                             .foregroundColor(.orange)
                     }
-                    
                     .accessibilityLabel("Mute")
+
+                   
                 }
                 ScrollView(showsIndicators: false) {
                     ScrollViewReader { value in
@@ -104,6 +116,23 @@ struct ContentView: View {
                     .foregroundColor(.orange)
                     .disabled(viewModel.hudVisible)
                 }
+                
+                if isMicActive {
+                    HStack {
+                        Spacer()
+                        SwiftSpeech.RecordButton()
+                            .accentColor(.orange)
+                            .swiftSpeechRecordOnHold()
+                            .padding(20)
+                            .onRecognizeLatest(update: $text)
+                            .onRecognize(includePartialResults: false) { _, _ in
+                                self.send(text: text)
+                            } handleError: { _, _ in }
+
+                        Spacer()
+                    }
+                }
+               
             }
             .onReceive(viewModel.$messageModel) { model in
                 guard let message = model, !(message.message ?? "").isEmpty else { return }
@@ -114,6 +143,7 @@ struct ContentView: View {
             }
             .onAppear {
                 viewModel.setup()
+                SwiftSpeech.requestSpeechRecognitionAuthorization()
             }
             
             if viewModel.hudVisible {

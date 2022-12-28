@@ -8,6 +8,15 @@
         "revision" : "ed0c6f2dacbac4b3f4028751ed10fcfbf71a8a1d",
         "version" : "1.1.1"
       }
+    },
+    {
+      "identity" : "swiftspeech",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Cay-Zhang/SwiftSpeech",
+      "state" : {
+        "branch" : "master",
+        "revision" : "6e41f289f5ccc1751ef5674972d46b48b326c4c6"
+      }
     }
   ],
   "version" : 2
