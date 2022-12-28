@@ -17,8 +17,7 @@ struct ContentView: View {
     @State private var muted = true
     @State var previousText = ""
     @State var isMicActive = false
-    
-    let synt = AVSpeechSynthesizer()
+    @State var synt: AVSpeechSynthesizer?
     
     var body: some View {
         ZStack {
@@ -37,7 +36,7 @@ struct ContentView: View {
                     Button(action: {
                         muted.toggle()
                         if muted {
-                            synt.pauseSpeaking(at: .immediate)
+                            synt?.pauseSpeaking(at: .immediate)
                         }
                     }) {
                         Image(systemName: muted ? "speaker.slash" : "speaker")
@@ -66,8 +65,6 @@ struct ContentView: View {
                                         }
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                         .id(model.id)
-                                        
-                                        
                                     case .ai:
                                         VStack {
                                             MessageView(model: model)
@@ -91,10 +88,8 @@ struct ContentView: View {
                                 withAnimation {
                                     value.scrollTo(models.last?.id)
                                 }
-                                
                             }
                         }
-                        
                     }
                 }
                 
@@ -151,8 +146,6 @@ struct ContentView: View {
                     .frame(width: 100, height: 100)
                     .foregroundColor(.orange)
             }
-            
-            
         }
         .onTapGesture {
             hideKeyboard()
@@ -162,14 +155,17 @@ struct ContentView: View {
     }
     
     func playSound(text: String) {
+
         let utterance = AVSpeechUtterance(string: text)
         utterance.rate = 0.5
-        synt.speak(utterance)
+        synt = AVSpeechSynthesizer()
+        synt?.speak(utterance)
         
     }
     
     func send(text: String) {
         guard !text.trimmingCharacters(in: .whitespaces).isEmpty else { return }
+        synt?.pauseSpeaking(at: .immediate)
         models.append(MessageModel(responder: .client, message: text))
         viewModel.send(text: text)
         previousText = text

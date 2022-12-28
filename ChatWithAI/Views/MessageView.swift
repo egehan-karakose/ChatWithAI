@@ -16,8 +16,14 @@ struct MessageView: View {
             Text(model.responder.title)
                 .padding(.vertical, 8)
             
-            Text(model.message?.removingLeadingNewLines() ?? "")
-                .padding(.bottom, 8)
+            if #available(iOS 15.0, *) {
+                Text(model.message?.removingLeadingNewLines() ?? "")
+                    .padding(.bottom, 8)
+                    .textSelection(.enabled)
+            } else {
+                Text(model.message?.removingLeadingNewLines() ?? "")
+                    .padding(.bottom, 8)
+            }
         }
     }
 }
